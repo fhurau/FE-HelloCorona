@@ -18,7 +18,7 @@ export default function AddArticle() {
         desc: "",
     });
 
-    console.log(form);
+    // console.log(form);
 
     const handleChange = (e) => {
         setForm({
@@ -49,10 +49,10 @@ export default function AddArticle() {
             formData.set("title", form.title);
             formData.set("image", form.image[0], form.image[0].name);
             formData.set("desc", form.desc);
-            console.log(formData);
+            // console.log(formData);
 
             const response = await API.post("/article", formData);
-            console.log(response);
+            // console.log(response);
 
             navigate("/doctor/list-article");
         } catch (error) {

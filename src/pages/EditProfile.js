@@ -91,7 +91,7 @@ export default function EditProfile() {
             formDataa.set("gender", form.gender);
 
             const response = await API.patch(`/user/${id}`,formDataa,config);
-            console.log(response);
+            // console.log(response);
             navigate("/patient/profile");
         } catch (error) {
             console.log(error);

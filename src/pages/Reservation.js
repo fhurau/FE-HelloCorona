@@ -22,7 +22,7 @@ export default function Reservation() {
         const response = await API.get("/consultations");
         return response.data.data;
     });
-    console.log(consultations);
+    // console.log(consultations);
 
     return (
         <div>

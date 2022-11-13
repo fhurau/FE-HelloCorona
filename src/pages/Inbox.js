@@ -19,8 +19,9 @@ export default function Inbox() {
         return response.data.data;
     });
 
-    console.log("aa", consultations.user);
-    console.log("bb", state.user.id);
+    // console.log("aa", consultations.user);
+    // console.log("bb", state.user.id);
+    
 
 
     return (
@@ -36,7 +37,7 @@ export default function Inbox() {
                         </h2>
                     </div>
                     {consultations?.map((item, index) => (
-                        item.user_id === state?.user.id?
+                        item?.user_id === state?.user?.id?
                         <Card className="container p-3 mb-3" key={index}>
                             <Card.Body>
                                 <div className="inbox-ctnr">
@@ -61,7 +62,7 @@ export default function Inbox() {
                                             {moment(item?.createdAt).format("DD MMMM YYYY")}
                                         </small>
                                         <p style={{ color: "#ff6185", fontWeight: "700" }}>
-                                            {item?.user.username}
+                                            {item?.user?.username}
                                         </p>
                                     </div>
                                 </div>
@@ -93,7 +94,7 @@ export default function Inbox() {
                                             >
                                                 Here
                                             </a>
-                                            <p className="mt-2">Hallo corona</p>
+                                            <p className="mt-2">Dr. Surya Ganteng</p>
                                         </div>
                                     </div>
                                 </Card.Footer>

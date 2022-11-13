@@ -64,7 +64,7 @@ export default function Signup({ signUpShow, setSignUpShow, signUpHere, setSignI
             [e.target.name]: e.target.value,
         });
     };
-    console.log(form);
+    // console.log(form);
 
     const handleSubmit = useMutation(async (e) => {
         try {

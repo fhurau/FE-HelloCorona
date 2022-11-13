@@ -11,6 +11,7 @@ import ListArticle from "../../src/assets/article.png";
 
 export default function NavbarDoctor() {
     const [state, dispatch] = useContext(UserContext);
+    // console.log("aaaaa",state);
 
     let navigate = useNavigate();
 
@@ -37,7 +38,7 @@ export default function NavbarDoctor() {
                                 title={
                                     <img
                                         className="rounded-circle"
-                                        src={Doctor}
+                                        src={`http://localhost:5000/uploads/${state?.user?.image}`}
                                         alt="User"
                                         style={{ width: "50px", height:"50px", objectFit:"cover" }}
                                     />

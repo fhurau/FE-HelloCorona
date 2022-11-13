@@ -57,13 +57,12 @@ export default function ReservationPage() {
             [e.target.name]: e.target.value,
         });
     };
-    console.log(form);
+    // console.log(form);
 
     const handleSubmit = useMutation(async (e) => {
         try {
             e.preventDefault();
 
-            // Configuration Content-type
             const config = {
                 headers: {
                     "Content-type": "application/json",
@@ -73,9 +72,8 @@ export default function ReservationPage() {
             // Data body
             const body = JSON.stringify(form);
 
-            // Insert data user to database
             const response = await API.post("/consultation", body, config);
-            console.log(response);
+            // console.log(response);
             navigate("/patient/inbox");
         } catch (error) {
             console.log(error);
@@ -88,7 +86,7 @@ export default function ReservationPage() {
                 className="container p-5"
                 style={{ marginTop: "10vh", marginRight: "50px" }}
             >
-                <h2 style={{ color: "#FF6185", fontWeight: "700" }}>
+                <h2 style={{ color: "#FF6185", fontWeight: "700", marginLeft:"200px" }}>
                     Reservasi Consultation
                 </h2>
             </div>

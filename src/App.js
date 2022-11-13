@@ -80,10 +80,7 @@ function App() {
         <Route path="/detailarticle/:id" element={<DetailArticleAuth />} />
         <Route path="/patient" element={<LayoutPatient />}>
           <Route index element={<HomePage />} />
-          <Route
-            path="/patient/detailarticle/:id"
-            element={<DetailArticle />}
-          />
+          <Route path="/patient/detailarticle/:id" element={<DetailArticle />}/>
           <Route path="/patient/profile" element={<Profile />} />
           <Route path="/patient/edit-profile/:id" element={<EditProfile />} />
           <Route path="/patient/consultation" element={<ReservationPage />} />

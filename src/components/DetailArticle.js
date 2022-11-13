@@ -11,10 +11,10 @@ export default function DetailArticle() {
     let { id } = useParams();
     let { data: article } = useQuery("articleeeeCache", async () => {
         const response = await API.get("/article/" + id);
-        console.log(response);
+        // console.log(response);
         return response.data.data;
     });
-    console.log(article);
+    // console.log(article);
 
     return (
         <div>
