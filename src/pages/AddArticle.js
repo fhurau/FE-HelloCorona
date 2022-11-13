@@ -51,7 +51,6 @@ export default function AddArticle() {
             formData.set("desc", form.desc);
             console.log(formData);
 
-            // Insert article data
             const response = await API.post("/article", formData);
             console.log(response);
 
