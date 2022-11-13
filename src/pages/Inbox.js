@@ -9,7 +9,7 @@ import moment from "moment";
 
 export default function Inbox() {
     const title = "List Consultation";
-    document.title = "Dumbflix | " + title;
+    document.title = "HelloCorona | " + title;
 
     let { data: consultations } = useQuery("cacheConsultations", async () => {
         const response = await API.get("/consultations");

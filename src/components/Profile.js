@@ -8,14 +8,15 @@ import gender from "../../src/assets/profile/gender.png";
 import phone from "../../src/assets/profile/phone.png";
 import status from "../../src/assets/profile/status.png";
 import { UserContext } from "../../src/context/userContex";
+import {Navigate, useNavigate } from "react-router-dom";
 
 export default function Profile() {
     const title = "Profile";
     document.title = "Halo Corona | " + title;
 
     const [state] = useContext(UserContext);
+    let navigate = useNavigate();
 
-    // console.log(state);
 
     return (
         <div className="profile-container">
@@ -30,7 +31,7 @@ export default function Profile() {
                         </div>
                         <div className="profile-details">
                             <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                {state.user.username}
+                                {state?.user?.username}
                             </span>
                             <span>Username</span>
                         </div>
@@ -41,7 +42,7 @@ export default function Profile() {
                         </div>
                         <div className="profile-details">
                             <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                {state.user.email}
+                                {state?.user?.email}
                             </span>
                             <span>Email</span>
                         </div>
@@ -52,7 +53,7 @@ export default function Profile() {
                         </div>
                         <div className="profile-details">
                             <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                {state.user.listAs}
+                                {state?.user?.listAs}
                             </span>
                             <span>Status</span>
                         </div>
@@ -62,7 +63,7 @@ export default function Profile() {
                             <img src={gender} alt="" />
                         </div>
                         <div className="profile-details">
-                            <span style={{ fontSize: "18px", fontWeight: "bold" }}>{state.user.gender}</span>
+                            <span style={{ fontSize: "18px", fontWeight: "bold" }}>{state?.user?.gender}</span>
                             <span>Gender</span>
                         </div>
                     </div>
@@ -72,7 +73,7 @@ export default function Profile() {
                         </div>
                         <div className="profile-details">
                             <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                {state.user.phone}
+                                {state?.user?.phone}
                             </span>
                             <span>Mobile Phone</span>
                         </div>
@@ -83,7 +84,7 @@ export default function Profile() {
                         </div>
                         <div className="profile-details">
                             <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                {state.user.address}
+                                {state?.user?.address}
                             </span>
                             <span>Address</span>
                         </div>
@@ -91,11 +92,11 @@ export default function Profile() {
                 </div>
                 <div className="profile-img">
                     {state.user.listAs == "patient" ? (
-                        <img src={patient} alt="avatar" className="profile-avatar" />
+                        <img src={`http://localhost:5000/uploads/${state?.user?.image}`} alt="avatar" className="profile-avatar" />
                     ) : (
-                        <img src={doctor} alt="avatar" className="profile-avatar" />
+                        <img src={`http://localhost:5000/uploads/${state?.user?.image}`} alt="avatar" className="profile-avatar" />
                     )}
-                    <button className="profile-button">Change Photo Profile</button>
+                    <button className="profile-button" onClick={() => navigate(`/patient/edit-profile/${state.user.id}`)}>Edit Profile</button>
                 </div>
             </div>
         </div>

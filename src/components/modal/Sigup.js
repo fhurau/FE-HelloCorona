@@ -4,7 +4,7 @@ import { UserContext } from "../../context/userContex";
 import { useMutation } from "react-query";
 import { API } from "../../config/api";
 
-export default function Signup({ signUpShow, setSignUpShow, signUpHere }) {
+export default function Signup({ signUpShow, setSignUpShow, signUpHere, setSignInShow }) {
     const regListAs = [
         {
             value: "",
@@ -42,9 +42,9 @@ export default function Signup({ signUpShow, setSignUpShow, signUpHere }) {
         email: "",
         password: "",
         listAs: "",
-        gender: "",
-        phone: "",
-        address: "",
+        // gender: "",
+        // phone: "",
+        // address: "",
     });
 
     const {
@@ -53,9 +53,9 @@ export default function Signup({ signUpShow, setSignUpShow, signUpHere }) {
         email,
         password,
         listAs,
-        gender,
-        phone,
-        address,
+        // gender,
+        // phone,
+        // address,
     } = form;
 
     const handleChange = (e) => {
@@ -80,7 +80,7 @@ export default function Signup({ signUpShow, setSignUpShow, signUpHere }) {
 
             const response = await API.post("/register", body, config);
 
-            if (response.data.code === 200) {
+            
                 const alert = (
                     <Alert variant="success" className="py-1">
                         Success, please login to continue..
@@ -94,18 +94,13 @@ export default function Signup({ signUpShow, setSignUpShow, signUpHere }) {
                     email: "",
                     password: "",
                     listAs: "",
-                    gender: "",
-                    phone: "",
-                    address: "",
+                    // gender: "",
+                    // phone: "",
+                    // address: "",
                 });
-            } else {
-                const alert = (
-                    <Alert variant="danger" className="py-1">
-                        Failed
-                    </Alert>
-                );
-                setMessage(alert);
-            }
+                setSignUpShow(false)
+                setSignInShow(true)
+
         } catch (error) {
             console.log(error);
 
@@ -127,23 +122,23 @@ export default function Signup({ signUpShow, setSignUpShow, signUpHere }) {
                 setMessage(alertPassword);
             }
 
-            // if (error.response.data.code === 402) {
-            //     const alertPassword = (
-            //         <Alert variant="danger" className="py-1">
-            //             Username not available!
-            //         </Alert>
-            //     );
-            //     setMessage(alertPassword);
-            // }
+            if (error.response.data.code === 402) {
+                const alertPassword = (
+                    <Alert variant="danger" className="py-1">
+                        Username not available!
+                    </Alert>
+                );
+                setMessage(alertPassword);
+            }
 
-            // if (error.response.data.code === 403) {
-            //     const alertPassword = (
-            //         <Alert variant="danger" className="py-1">
-            //             Email has already been registered!
-            //         </Alert>
-            //     );
-            //     setMessage(alertPassword);
-            // }
+            if (error.response.data.code === 403) {
+                const alertPassword = (
+                    <Alert variant="danger" className="py-1">
+                        Email has already been registered!
+                    </Alert>
+                );
+                setMessage(alertPassword);
+            }
         }
     });
 
@@ -225,7 +220,7 @@ export default function Signup({ signUpShow, setSignUpShow, signUpHere }) {
                                         </option>
                                     ))}
                                 </select>
-                                <label className="label">Gender</label>
+                                {/* <label className="label">Gender</label>
                                 <select
                                     name="gender"
                                     value={gender}
@@ -253,7 +248,7 @@ export default function Signup({ signUpShow, setSignUpShow, signUpHere }) {
                                     value={address}
                                     onChange={handleChange}
                                     className="px-3 py-2 mb-2"
-                                />
+                                /> */}
                             </div>
                             <div>
                                 <input

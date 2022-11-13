@@ -18,6 +18,7 @@ import DetReserv from "./pages/DetReserv";
 import AddArticle from "./pages/AddArticle";
 import Article from "./components/Article";
 import Notfound from "./components/NotFound";
+import EditProfile from "./pages/EditProfile";
 
 
 if (localStorage.token) {
@@ -84,6 +85,7 @@ function App() {
             element={<DetailArticle />}
           />
           <Route path="/patient/profile" element={<Profile />} />
+          <Route path="/patient/edit-profile/:id" element={<EditProfile />} />
           <Route path="/patient/consultation" element={<ReservationPage />} />
           <Route path="/patient/inbox" element={<Inbox />} />
         </Route>

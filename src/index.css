@@ -137,8 +137,9 @@ nav {
 /* profile */
 .profile-container {
   height: 100vh;
-  /* width: 100%; */
+  width: 85%;
   display: flex;
+  margin: auto;
   justify-content: center;
   align-items: center;
 }
@@ -197,11 +198,16 @@ nav {
   /* background-color: blue; */
 }
 
+
+
 .profile-avatar {
   padding-top: 20px;
   position: relative;
   float: right;
-  margin-right: 100px;
+  margin-right: 30px;
+  margin-top: 20px;
+  Width:350px;
+  Height:420px;
   /* width: 100%; */
 }
 
@@ -210,7 +216,7 @@ nav {
   margin-left: 110px;
   width: 70%;
   height: 60px;
-  margin-top: 10px;
+  margin-top: 15px;
   font-size: 1.3rem;
   background: #ff6185;
   border: 1px solid #ff6185;

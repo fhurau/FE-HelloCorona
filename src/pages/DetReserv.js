@@ -34,6 +34,8 @@ export default function DetReserv() {
         updatedAt: "",
     });
 
+    console.log(form);
+
     let { consultationRefetch } = useQuery("consultationCache", async () => {
         const config = {
             headers: {
@@ -120,7 +122,7 @@ export default function DetReserv() {
                             <div className="rsv-date ms-3">
                                 <h5>Date of Complaint</h5>
                                 <p className="text-muted">
-                                    {moment(form?.createdAt).format("DD MMMM YYYY")}
+                                    {moment(form.createdAt).format("DD MMMM YYYY")}
                                 </p>
                                 <h5>Live Consultation</h5>
                                 <p className="text-muted">
