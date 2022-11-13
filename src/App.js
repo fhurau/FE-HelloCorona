@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import Auth from "./pages/Auth";
+import Auth from "./pages/Landing";
 
 
 import { UserContext } from "./context/userContex";
@@ -14,7 +14,7 @@ import ReservationPage from "./pages/ReservationPage";
 import Inbox from "./pages/Inbox";
 import LayoutDoctor from "./pages/LayoutDoc";
 import Reservation from "./pages/Reservation";
-import DetReserv from "./pages/DetReserv";
+import DetReserv from "./pages/ReplyReserv";
 import AddArticle from "./pages/AddArticle";
 import Article from "./components/Article";
 import Notfound from "./components/NotFound";

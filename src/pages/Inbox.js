@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card } from "react-bootstrap";
 import Patient from "../../src/assets/dropdown/patient.png";
 import Doctor from "../../src/assets/dropdown/doctor.png";
@@ -6,15 +6,22 @@ import noData from "../../src/assets/No-data.png";
 import { useQuery } from "react-query";
 import { API } from "../../src/config/api";
 import moment from "moment";
+import { UserContext } from "../context/userContex";
 
 export default function Inbox() {
     const title = "List Consultation";
     document.title = "HelloCorona | " + title;
 
+    const [state, dispatch] = useContext(UserContext)
+
     let { data: consultations } = useQuery("cacheConsultations", async () => {
         const response = await API.get("/consultations");
         return response.data.data;
     });
+
+    console.log("aa", consultations.user);
+    console.log("bb", state.user.id);
+
 
     return (
         <>
@@ -29,6 +36,7 @@ export default function Inbox() {
                         </h2>
                     </div>
                     {consultations?.map((item, index) => (
+                        item.user_id === state?.user.id?
                         <Card className="container p-3 mb-3" key={index}>
                             <Card.Body>
                                 <div className="inbox-ctnr">
@@ -46,7 +54,7 @@ export default function Inbox() {
                                             Last update:{" "}
                                             {moment(item?.updatedAt).format("DD MMMM YYYY")}
                                         </small>
-                                        <div className="mt-1 cons-box">Keluhan: {item?.desc}</div>
+                                        <div className="mt-1 ms-4 cons-box">Keluhan: {item?.desc}</div>
                                     </div>
                                     <div className="ms-3 d-block">
                                         <small style={{ fontWeight: "700" }}>
@@ -91,6 +99,7 @@ export default function Inbox() {
                                 </Card.Footer>
                             )}
                         </Card>
+                        :<div></div>
                     ))}
                 </div>
             ) : (

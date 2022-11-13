@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { Container, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Logo from "../../src/assets/logo.png";
-import Signup from "../../src/components/modal/Sigup";
-import Signin from "../../src/components/modal/Signin";
+import Signup from "../components/modal/Sigup";
+import Signin from "../components/modal/Signin";
 import bgImg from "../../src/assets/Hero.png";
 import iconbtn from "../../src/assets/iconbtn.png";
 import Article from "../components/Article";
 
-export default function Auth() {
+export default function Landing() {
     const title = "Home";
     document.title = "Halo Corona | " + title;
 

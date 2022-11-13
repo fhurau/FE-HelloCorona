@@ -3,12 +3,12 @@ import { Table, Button, Card, Form } from "react-bootstrap";
 import satu from "../../src/assets/1.png";
 import dua from "../../src/assets/2.png";
 import tiga from "../../src/assets/3.png";
-import { API } from "../../src/config/api";
+import { API } from "../config/api";
 import { useQuery } from "react-query";
 import { useParams, useNavigate } from "react-router-dom";
 import moment from "moment";
 
-export default function DetReserv() {
+export default function ReplyReserv() {
     const title = "Detail Reservation";
     document.title = "Halo Corona | " + title;
 
@@ -122,7 +122,7 @@ export default function DetReserv() {
                             <div className="rsv-date ms-3">
                                 <h5>Date of Complaint</h5>
                                 <p className="text-muted">
-                                    {moment(form.createdAt).format("DD MMMM YYYY")}
+                                    {moment(form?.createdAt).format("DD MMMM YYYY")}
                                 </p>
                                 <h5>Live Consultation</h5>
                                 <p className="text-muted">
